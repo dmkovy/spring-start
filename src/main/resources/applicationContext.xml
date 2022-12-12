@@ -34,6 +34,7 @@
     <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
 
     <!--    </bean>-->
+
     <bean id="musicPlayer"
           class="ru.dmkovy.springstart.MusicPlayer"
           scope="prototype">
