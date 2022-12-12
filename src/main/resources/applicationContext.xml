@@ -19,7 +19,11 @@
           class="ru.dmkovy.springstart.RockMusic">
     </bean>
     <bean id="musicBean3"
-          class="ru.dmkovy.springstart.DubstepMusic">
+          class="ru.dmkovy.springstart.DubstepMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          scope="prototype"
+          factory-method="getDubstepMusic">
     </bean>
 
     <!--    <bean id="musicPlayer"-->
@@ -30,7 +34,9 @@
     <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
 
     <!--    </bean>-->
-    <bean id="musicPlayer" class="ru.dmkovy.springstart.MusicPlayer">
+    <bean id="musicPlayer"
+          class="ru.dmkovy.springstart.MusicPlayer"
+          scope="prototype">
         <constructor-arg>
             <list>
                 <ref bean="musicBean1"/>
@@ -38,6 +44,7 @@
                 <ref bean="musicBean3"/>
             </list>
         </constructor-arg>
+
 
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
